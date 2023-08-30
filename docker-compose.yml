@@ -1,5 +1,15 @@
 version: "3"
 services:
+  web:
+    #docker image build -t demo:3.0 .
+    image: demo:3.0
+    build:
+      context: ./example01
+      dockerfile: Dockerfile
+    #docker container run -d -p 9999:80 demo:1.0
+    ports:
+      - 9999:80
+
   db:
     image: mysql
     container_name: db
