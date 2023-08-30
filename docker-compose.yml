@@ -1,5 +1,15 @@
 version: "3"
 services:
+  lb:
+    build:
+      context: ./loadbalance
+      dockerfile: Dockerfile
+    ports:
+      - 8888:80
+    depends_on:
+      web:
+        condition: service_healthy
+
   web:
     #docker image build -t demo:3.0 .
     image: demo:3.0
@@ -11,6 +21,14 @@ services:
     #docker container run -d -p 9999:80 demo:1.0
     # ports:
     #   - 9999:80
+    healthcheck:
+      test: "curl --fail --silent localhost || exit 1"
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+
   admin:
     image: phpmyadmin
     ports:
