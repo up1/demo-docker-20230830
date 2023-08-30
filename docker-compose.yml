@@ -3,6 +3,8 @@ services:
   web:
     #docker image build -t demo:3.0 .
     image: demo:3.0
+    environment:
+      - PAYMENT_ENDPOINT=${URL:-http://dev.demo.com}
     build:
       context: ./example01
       dockerfile: Dockerfile
