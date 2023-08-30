@@ -1,0 +1,8 @@
+docker container run \
+    -e MYSQL_ROOT_PASSWORD=123 \
+    -e MYSQL_DATABASE=day01 \
+    -e MYSQL_USER=user \
+    -e MYSQL_PASSWORD=password \
+    -v $(pwd):/docker-entrypoint-initdb.d \
+    --name db \
+    mysql
