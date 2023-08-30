@@ -7,8 +7,12 @@ services:
       context: ./example01
       dockerfile: Dockerfile
     #docker container run -d -p 9999:80 demo:1.0
+    # ports:
+    #   - 9999:80
+  admin:
+    image: phpmyadmin
     ports:
-      - 9999:80
+      - 7777:80
 
   db:
     image: mysql
