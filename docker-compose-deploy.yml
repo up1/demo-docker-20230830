@@ -1,0 +1,6 @@
+version: "3"
+services:
+  web:
+    image: demo:3.0
+    ports:
+     - 9999:80
