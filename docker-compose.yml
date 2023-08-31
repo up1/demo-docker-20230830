@@ -1,5 +1,10 @@
 version: "3"
 services:
+  grafana:
+    image: grafana/grafana-oss:10.0.0
+    ports:
+      - 3000:3000
+      
   prometheus:
     image: prom/prometheus
     volumes:
